@@ -1,12 +1,14 @@
-import 'dart:io';
 
+import 'dart:io';
 
 import 'package:band_name/models/band.dart';
 import 'package:band_name/services/socket_service.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:pie_chart/pie_chart.dart';
 import 'package:provider/provider.dart';
+import 'package:pie_chart/pie_chart.dart';
+
+
 
 
 class HomePage extends StatefulWidget {
@@ -63,7 +65,7 @@ class _HomePageState extends State<HomePage> {
           )
         ],
       ),
-      body: Column(
+      body:Column(
         children: <Widget>[
 
           _showGraph(),
@@ -193,7 +195,7 @@ class _HomePageState extends State<HomePage> {
     ];
 
     return Container(
-      padding: EdgeInsets.only(top: 10),
+      padding: EdgeInsets.only(top: 1),
       width: double.infinity,
       height: 200,
       child: PieChart(
