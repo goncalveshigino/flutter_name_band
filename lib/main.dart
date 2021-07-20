@@ -1,27 +1,34 @@
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'package:band_name/pages/home_page.dart';
-import 'package:band_name/pages/status.dart';
+import 'package:socket_io_client/socket_io_client.dart';
 
-import 'services/socket_services.dart';
- 
-void main() => runApp(MyApp());
- 
+import 'pages/home.dart';
+import 'pages/status.dart';
+import 'services/socket_service.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
 class MyApp extends StatelessWidget {
+  const MyApp({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => SocketService(), )
+        ChangeNotifierProvider(
+          create: (_) => SocketService(),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Material App',
-        initialRoute: 'home',
+        initialRoute: 'status',
         routes: {
-          'home'  : (_) => HomePage(),
-          'status': (_) => StatusPage()
+          'home': (_) => HomePage(),
+          'status': (_) => StatusPage(),
         },
       ),
     );
